@@ -48,8 +48,10 @@ export class NavigationHandler {
 
     if (
       !this.validator.isSupportedWebsite(currentWebsite) ||
-      !this.validator.validateAmazonWebsite(currentWebsite)
+      !(this.validator.validateAmazonWebsite(currentWebsite) ||
+      this.validator.validateEbayWebsite(currentWebsite))
     ) {
+      console.log('Website is not supported or not a valid page.', currentWebsite);
       return
     }
 
@@ -60,6 +62,7 @@ export class NavigationHandler {
         console.log('Affiliate ID is not set.')
         return
       }
+      console.log('Affiliate ID found:', affiliateId)
     } catch (error) {
       console.error('Failed to get chrome storage. Refresh page.\n', error)
       return
@@ -79,11 +82,16 @@ export class NavigationHandler {
   }
 
   private determineWebsiteKey(url: URL): string {
-    return url.href.includes('amazon') && !url.href.includes('geni.us')
-      ? 'amazon'
-      : url.href.includes('geni.us')
-        ? 'genius'
-        : ''
+    if (url.href.includes('amazon') && !url.href.includes('geni.us')) {
+      return 'amazon'
+    }
+    if (url.href.includes('geni.us')) {
+      return 'genius'
+    }
+    if (url.href.includes('ebay')) {
+      return 'ebay'
+    }
+    return ''
   }
 
   private async getAffiliateIdForWebsite(
@@ -93,7 +101,12 @@ export class NavigationHandler {
       this.chrome.storage.sync.get(
         `${websiteKey}AffiliateId`,
         (result: Record<string, any>) => {
-          resolve(result[`${websiteKey}AffiliateId`])
+          // For eBay, use 'ebayAffiliateId'
+          if (websiteKey === 'ebay') {
+            resolve(result['ebayAffiliateId'])
+          } else {
+            resolve(result[`${websiteKey}AffiliateId`])
+          }
         },
       )
     })
@@ -118,6 +131,22 @@ export class NavigationHandler {
     }
   }
 
+  private generateEbayAffiliateLink(
+    url: string,
+    campaignId: string,
+  ): string {
+    try {
+      const parsedUrl = new URL(url)
+      // Remove existing 'campid' param if present
+      parsedUrl.searchParams.delete('campid')
+      // Add the affiliate campaign ID
+      parsedUrl.searchParams.set('campid', campaignId)
+      return parsedUrl.toString()
+    } catch {
+      return url
+    }
+  }
+
   private async generateAffiliateLink(
     url: string,
     affiliateId: string,
@@ -128,11 +157,12 @@ export class NavigationHandler {
       case 'amazon': {
         return this.generateAmazonAffiliateLink(url, affiliateId)
       }
-
       case 'genius': {
         return this.generateGeniusAffiliateLink(url, affiliateId)
       }
-
+      case 'ebay': {
+        return this.generateEbayAffiliateLink(url, affiliateId)
+      }
       default: {
         return url
       }

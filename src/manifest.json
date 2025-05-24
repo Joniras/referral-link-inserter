@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "Amazon Affiliate Tag Injector",
+  "name": "Affiliate Tag Injector",
   "browser_specific_settings": {
     "gecko": {
-      "id": "referral-link@simwai.com"
+      "id": "office@rechnerlotsen.at"
     }
   },
-  "version": "2.0",
-  "description": "Injects your Amazon affiliate tag into the URL.",
+  "version": "3.0",
+  "description": "Injects your affiliate tag (ebay&Amazon) into the URL.",
   "permissions": [
     "storage",
     "webNavigation",
@@ -29,7 +29,16 @@
     "*://*.amazon.sg/*",
     "*://*.amazon.sa/*",
     "*://*.amazon.co.jp/*",
-    "*://*.buy.geni.us/*"
+    "*://*.buy.geni.us/*",
+    "*://*.ebay.de/*",
+    "*://*.ebay.com/*",
+    "*://*.ebay.co.uk/*",
+    "*://*.ebay.fr/*",
+    "*://*.ebay.at/*",
+    "*://*.ebay.it/*",
+    "*://*.ebay.es/*",
+    "*://*.ebay.ca/*",
+    "*://*.ebay.com.au/*"
   ],
   "icons": {
     "16": "favicons/favicon-16x16.png",
@@ -56,7 +65,15 @@
     "*://amazon.sg/*",
     "*://amazon.sa/*",
     "*://amazon.co.jp/*",
-    "*://buy.geni.us/*"
+    "*://buy.geni.us/*",
+    "*://ebay.de/*",
+    "*://ebay.com/*",
+    "*://ebay.co.uk/*",
+    "*://ebay.fr/*",
+    "*://ebay.it/*",
+    "*://ebay.es/*",
+    "*://ebay.ca/*",
+    "*://ebay.com.au/*"
   ],
   "background": {
     "scripts": ["background.js"],

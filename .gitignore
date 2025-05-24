@@ -3,3 +3,5 @@ dist
 
 *.zip
 *.xpi
+
+.history/

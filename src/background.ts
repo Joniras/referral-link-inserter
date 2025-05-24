@@ -20,6 +20,15 @@ export const websitesData: WebsiteData[] = [
   {hostSuffix: 'amazon.com.tr'},
   {hostSuffix: 'amazon.com.ar'},
   {hostSuffix: 'buy.geni.us'},
+  {hostSuffix: 'ebay.de'},
+  {hostSuffix: 'ebay.com'},
+  {hostSuffix: 'ebay.at'},
+  {hostSuffix: 'ebay.co.uk'},
+  {hostSuffix: 'ebay.fr'},
+  {hostSuffix: 'ebay.it'},
+  {hostSuffix: 'ebay.es'},
+  {hostSuffix: 'ebay.ca'},
+  {hostSuffix: 'ebay.com.au'},
 ]
 
 if (typeof chrome !== 'undefined') {

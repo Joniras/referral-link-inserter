@@ -27,4 +27,18 @@ export class Validator {
 
     return isValid
   }
+
+  public validateEbayWebsite(url: URL): boolean {
+    const isProductPage =
+      /(.*)(\/itm\/|\/itm\/|\/itm\/|\/itm\/|\/itm\/|\/itm\/)([a-z\d]{10})(.*)/i.test(
+        url.pathname,
+      )
+    const isSearchPage = url.pathname.includes('/sch/')
+
+    let isValid = isProductPage || isSearchPage
+    isValid &&= !url.href.includes('/signin')
+    isValid &&= !url.href.includes('/sspa/click')
+
+    return isValid
+  }
 }
