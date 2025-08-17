@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Affiliate Tag Injector",
+  "version": "3.1",
+  "description": "Injects your affiliate tag (ebay & Amazon) into the URL.",
   "browser_specific_settings": {
     "gecko": {
-      "id": "office@rechnerlotsen.at"
+      "id": "office@rechnerlotsen.at",
+      "update_url": "https://addon.rechnerlotsen.at/updates.json"
     }
   },
-  "version": "3.0",
-  "description": "Injects your affiliate tag (ebay&Amazon) into the URL.",
   "permissions": [
     "storage",
     "webNavigation",
@@ -40,13 +41,6 @@
     "*://*.ebay.ca/*",
     "*://*.ebay.com.au/*"
   ],
-  "icons": {
-    "16": "favicons/favicon-16x16.png",
-    "32": "favicons/favicon-32x32.png",
-    "64": "favicons/favicon-64x64.png",
-    "128": "favicons/favicon-128x128.png",
-    "256": "favicons/favicon-256x256.png"
-  },
   "host_permissions": [
     "*://amazon.de/*",
     "*://amazon.co.uk/*",
@@ -75,6 +69,13 @@
     "*://ebay.ca/*",
     "*://ebay.com.au/*"
   ],
+  "icons": {
+    "16": "favicons/favicon-16x16.png",
+    "32": "favicons/favicon-32x32.png",
+    "64": "favicons/favicon-64x64.png",
+    "128": "favicons/favicon-128x128.png",
+    "256": "favicons/favicon-256x256.png"
+  },
   "background": {
     "scripts": ["background.js"],
     "type": "module"
