@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
   "name": "Affiliate Tag Injector",
-  "version": "3.2",
+  "version": "3.4",
   "description": "Injects your affiliate tag (ebay & Amazon) into the URL.",
   "browser_specific_settings": {
     "gecko": {
       "id": "office@rechnerlotsen.at",
-      "update_url": "https://addon.rechnerlotsen.at/updates.json"
+      "update_url": "https://addon.rechnerlotsen.com/updates.json"
     }
   },
   "permissions": [
