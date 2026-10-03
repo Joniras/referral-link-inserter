@@ -1,5 +1,8 @@
 node_modules
 dist
+dist-firefox
+dist-chrome
+artifacts
 
 *.zip
 *.xpi

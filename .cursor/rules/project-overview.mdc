@@ -1,0 +1,29 @@
+---
+description: OpenSource Partner Support extension architecture and repo map
+alwaysApply: true
+---
+
+# Project overview
+
+Firefox MV2 (primary) + Chrome MV3 build of **OpenSource Partner Support** — opt-in affiliate support for RechnerLotsen. Related website: `C:\allmystuff\Rechnerlotsen\rechnerlotsen.com`.
+
+## Architecture
+
+- **Content script** (`src/content-script.ts`): click/landing intercept → opt-in overlay → messages background
+- **Background** (`src/background.ts`): consent + partners cache; `webNavigation` redirects **only** when consent is `always`/`session`
+- **Partners feed**: public JSON at `https://rechnerlotsen.com/data/affiliate-partners.json` (hosts/labels/param names only)
+- **Support page** (website): `/support?dest=&partner=` applies affiliate IDs and redirects to shop
+- **Options** (`src/options.html` / `options.ts`): consent reset / status
+
+## Key paths
+
+| Path | Role |
+|------|------|
+| `src/` | Shared TypeScript source |
+| `src/manifest.shared.json` | Version, name, icons, content_scripts |
+| `src/manifest.firefox.json` / `manifest.chrome.json` | Browser-specific manifest overlays |
+| `dist-firefox/` / `dist-chrome/` | Build outputs |
+| `artifacts/` | Packaged `.xpi` / Chrome `.zip` |
+| Website `src/content/affiliate-partners.json` | **Only** place affiliate IDs live |
+
+See also: `AGENTS.md`, `BUILD.md`, `.cursor/skills/`.

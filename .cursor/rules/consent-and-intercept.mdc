@@ -1,0 +1,39 @@
+---
+description: Consent modes, skip-intercept rules, Amazon nosim tagging
+globs: src/**/*.{ts,html}
+alwaysApply: false
+---
+
+# Consent and intercept rules
+
+## Consent modes (`ConsentMode`)
+
+| Mode | Meaning |
+|------|---------|
+| `always` | Auto-redirect via support (sync storage); use `quiet=1` on `/support` |
+| `session` | Legacy auto until browser session ends (same quiet redirects). New „Ja, diesmal“ does **not** set this |
+| `snoozed` | „Erstmal nicht“ — 3 days (`CONSENT_SNOOZE_MS`); click + landing both **ignore** (no dialog) |
+| `never` | Never ask / never redirect; click + landing both **ignore** |
+| `unset` | Show opt-in dialog |
+
+### Opt-in dialog actions
+
+| Button | Behavior |
+|--------|----------|
+| Ja, immer | `setConsentAlways` → `/support` (brief thank-you, no `quiet`) |
+| Ja, diesmal | **True one-shot**: no consent storage → `/support` once; later clicks ask again |
+| Erstmal nicht | `setConsentSnooze` → untagged dest |
+| Nie | `setConsentNever` → untagged dest |
+| Esc / backdrop | No storage change → untagged dest (do not cancel navigation) |
+
+## Skip intercept when
+
+1. Destination already has a non-empty affiliate param (`hasExistingAffiliateTag`)
+2. Already browsing the **same partner host** (in-shop clicks / product→product)
+3. Coming back from `/support` (thank-you → shop)
+4. URL is the support page itself
+
+## Amazon tagging (website only)
+
+- Product paths `/dp/ASIN` or `/gp/product/ASIN`: add `?tag=` **and** `/ref=nosim`
+- All other Amazon URLs: `?tag=` **only** — never append `/ref=nosim` (soft-404 on cart/wishlist/etc.)

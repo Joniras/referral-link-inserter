@@ -1,292 +1,274 @@
 <!doctype html>
-<html>
+<html lang="de">
   <head>
-    <title>Extension Options</title>
+    <meta charset="utf-8" />
+    <title>OpenSource Partner Support – Optionen</title>
     <style>
-      /* CSS Reset */
-      html,
-      body,
-      div,
-      span,
-      applet,
-      object,
-      iframe,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      blockquote,
-      pre,
-      a,
-      abbr,
-      acronym,
-      address,
-      big,
-      cite,
-      code,
-      del,
-      dfn,
-      em,
-      img,
-      ins,
-      kbd,
-      q,
-      s,
-      samp,
-      small,
-      strike,
-      strong,
-      sub,
-      sup,
-      tt,
-      var,
-      b,
-      u,
-      i,
-      center,
-      dl,
-      dt,
-      dd,
-      ol,
-      ul,
-      li,
-      fieldset,
-      form,
-      label,
-      legend,
-      table,
-      caption,
-      tbody,
-      tfoot,
-      thead,
-      tr,
-      th,
-      td,
-      article,
-      aside,
-      details,
-      figcaption,
-      figure,
-      footer,
-      header,
-      hgroup,
-      menu,
-      nav,
-      output,
-      ruby,
-      section,
-      summary,
-      time,
-      mark,
-      audio,
-      video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
+      @font-face {
+        font-family: "Jost";
+        src: url("fonts/Jost-VariableFont_wght.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
       }
 
-      /* HTML5 display-role reset for older browsers */
-      article,
-      aside,
-      details,
-      figcaption,
-      figure,
-      footer,
-      header,
-      hgroup,
-      menu,
-      nav,
-      section {
-        display: block;
+      :root {
+        --paper: #e6f0f9;
+        --paper-bright: #f9fcfe;
+        --surface: #d2e4f2;
+        --ink: #0a1628;
+        --ink-700: #2a3d52;
+        --ink-600: #4a5d70;
+        --ink-400: #6b7f92;
+        --blue: #0078d4;
+        --blue-700: #005a9e;
+        --sage: #98d8aa;
+        --line: rgba(10, 22, 40, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        line-height: 1;
-      }
-
-      ol,
-      ul {
-        list-style: none;
-      }
-
-      blockquote,
-      q {
-        quotes: none;
-      }
-
-      blockquote:before,
-      blockquote:after,
-      q:before,
-      q:after {
-        content: "";
-        content: none;
-      }
-
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-
-      /* End of CSS Reset */
-
-      /* Your Custom Styles */
-      body {
-        font-family: "Roboto", sans-serif;
         margin: 0;
-        padding: 0;
-        overflow: hidden;
+        min-height: 100vh;
+        font-family: "Jost", "Segoe UI", system-ui, sans-serif;
+        color: var(--ink-600);
+        background:
+          radial-gradient(ellipse 120% 70% at 0% -10%, color-mix(in srgb, var(--blue) 16%, transparent), transparent 58%),
+          radial-gradient(ellipse 90% 60% at 100% 0%, color-mix(in srgb, var(--sage) 18%, transparent), transparent 52%),
+          var(--paper);
       }
 
       .container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .hero {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 2rem;
-        overflow: auto;
-        scrollbar-width: thin;
-        scrollbar-color: #673ab7 #f5f5f5;
+        gap: 14px;
+        margin-bottom: 1.25rem;
       }
 
-      .form-group {
-        margin-bottom: 2.5rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
+      .hero img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0, 120, 212, 0.2);
       }
 
-      .form-group label {
-        color: #673ab7;
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.75rem;
+        letter-spacing: -0.03em;
+        font-weight: 650;
+      }
+
+      .lead {
+        margin: 0 0 2rem;
+        line-height: 1.55;
+        max-width: 42rem;
+      }
+
+      .card {
+        background: color-mix(in srgb, var(--paper-bright) 88%, white);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+        box-shadow: 0 18px 40px -28px rgba(10, 22, 40, 0.35);
+      }
+
+      .card h2 {
+        margin: 0 0 0.75rem;
+        font-size: 1.1rem;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+      }
+
+      .card h3 {
+        margin: 1.25rem 0 0.4rem;
+        font-size: 1rem;
+        color: var(--ink);
+      }
+
+      .card p {
+        margin: 0 0 1rem;
+        line-height: 1.5;
+        font-size: 0.95rem;
+      }
+
+      .meta {
+        font-size: 0.85rem;
+        color: var(--ink-600);
         margin-bottom: 1rem;
-        font-size: 1.6rem;
       }
 
-      .form-group input[type="text"] {
-        padding: 1.2rem;
-        font-size: 1.4rem;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        transition: border-color 0.3s ease-in-out;
+      dl.debug {
+        margin: 0 0 1rem;
+        display: grid;
+        grid-template-columns: minmax(140px, 32%) 1fr;
+        gap: 0.35rem 0.75rem;
+        font-size: 0.9rem;
       }
 
-      .form-group input[type="text"]:focus {
-        border-color: #673ab7;
-        outline: none;
+      dl.debug dt {
+        color: var(--ink-400);
+        font-weight: 500;
+      }
+
+      dl.debug dd {
+        margin: 0;
+        color: var(--ink);
+        word-break: break-word;
+      }
+
+      .partner {
+        border-top: 1px solid var(--line);
+        padding-top: 1rem;
+        margin-top: 1rem;
+      }
+
+      .partner:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      .hosts {
+        margin: 0.4rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      .hosts li {
+        background: var(--surface);
+        color: var(--ink-700);
+        border-radius: 999px;
+        padding: 0.2rem 0.65rem;
+        font-size: 0.78rem;
+        font-family: ui-monospace, "Cascadia Code", monospace;
+      }
+
+      .note {
+        font-size: 0.85rem;
+        color: var(--ink-400);
+        line-height: 1.45;
+      }
+
+      button {
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        padding: 0.8rem 1.2rem;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--blue);
+        color: #fff;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      button:hover {
+        background: var(--blue-700);
+      }
+
+      button.secondary {
+        background: var(--surface);
+        color: var(--ink);
+      }
+
+      button.secondary:hover {
+        background: #c2dff5;
+      }
+
+      .status {
+        min-height: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--blue-700);
       }
 
       .footer {
-        margin-top: 2.5rem;
+        margin-top: 2rem;
+        font-size: 0.85rem;
         text-align: center;
-        color: #888;
-        font-size: 1.3rem;
+        color: var(--ink-400);
       }
 
-      /* Responsive Design */
-      @media screen and (max-width: 480px) {
-        .container {
-          padding: 1rem;
-          align-items: stretch;
-        }
-
-        h1 {
-          font-size: 2rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .form-group input[type="text"] {
-          padding: 1rem;
-          font-size: 1.3rem;
-        }
-
-        .form-group label {
-          font-size: 1.3rem;
-        }
-
-        .footer {
-          font-size: 1rem;
-        }
-
-        .form-group {
-          flex-wrap: wrap;
-        }
+      a {
+        color: var(--blue);
       }
 
-      @media screen and (min-width: 481px) and (max-width: 768px) {
-        .container {
-          padding: 2rem;
-          max-width: 480px;
-        }
-
-        h1 {
-          font-size: 2.5rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .form-group input[type="text"] {
-          padding: 1.2rem;
-          font-size: 1.4rem;
-        }
-
-        .form-group label {
-          font-size: 1.4rem;
-        }
-
-        .footer {
-          font-size: 1.1rem;
-        }
-      }
-
-      @media screen and (min-width: 769px) {
-        .container {
-          max-width: 600px;
-          margin: 0 auto;
-        }
-
-        h1 {
-          font-size: 1.5rem;
-          margin-bottom: 4rem;
-        }
-
-        .form-group input[type="text"] {
-          padding: 0.8rem;
-          font-size: 0.8rem;
-        }
-
-        .form-group label {
-          font-size: 1.2rem;
-        }
-
-        .footer {
-          font-size: 0.8rem;
-        }
+      code {
+        font-family: ui-monospace, "Cascadia Code", monospace;
+        font-size: 0.85em;
       }
     </style>
     <script src="options.js" type="module"></script>
   </head>
-
   <body>
     <div class="container">
-      <h1>Extension Options (for Ebay & Amazon)</h1>
-
-      <div class="form-group">
-        <label for="amazon-affiliate-id">Amazon Affiliate ID:</label>
-        <input type="text" id="amazon-affiliate-id" />
+      <div class="hero">
+        <img src="brand/logo-icon.png" alt="OpenSource Partner Support" width="56" height="56" />
+        <h1>OpenSource Partner Support</h1>
       </div>
-      <div class="form-group">
-        <label for="ebay-affiliate-id">eBay Affiliate ID:</label>
-        <input type="text" id="ebay-affiliate-id" />
+      <p class="lead">
+        Mit der Provision verbessern wir unseren Service und unterstützen zugleich
+        Open-Source-Projekte, auf die wir setzen. Partner-Hosts und Query-Parameter kommen von
+        <a href="https://rechnerlotsen.com/data/affiliate-partners.json" target="_blank" rel="noopener"
+          >rechnerlotsen.com</a
+        >. Die Affiliate-<em>IDs</em> liegen nur auf der Website.
+      </p>
+
+      <div class="card">
+        <h2>Einwilligung</h2>
+        <dl class="debug">
+          <dt>Status</dt>
+          <dd id="consent-status">…</dd>
+          <dt>Wirkung</dt>
+          <dd id="consent-effect">…</dd>
+        </dl>
+        <button type="button" class="secondary" id="reset-consent">Opt-in erneut fragen</button>
+        <div class="status" id="consent-feedback"></div>
+      </div>
+
+      <div class="card">
+        <h2>Partner-Feed (Debug)</h2>
+        <dl class="debug" id="feed-meta">
+          <dt>Quelle</dt>
+          <dd id="feed-source">…</dd>
+          <dt>Feed-URL</dt>
+          <dd id="feed-url">…</dd>
+          <dt>Version</dt>
+          <dd id="feed-version">…</dd>
+          <dt>updatedAt</dt>
+          <dd id="feed-updated">…</dd>
+          <dt>Letzter Sync</dt>
+          <dd id="feed-synced">…</dd>
+          <dt>Partner</dt>
+          <dd id="feed-count">…</dd>
+        </dl>
+        <button type="button" id="refresh-partners">Jetzt aktualisieren</button>
+        <div class="status" id="partners-feedback"></div>
+        <div id="partners-list"></div>
+        <p class="note" id="partners-note">
+          Links mit gesetztem Affiliate-Parameter (fremd oder eigen, z. B. <code>?tag=…</code>)
+          und Klicks innerhalb eines Partner-Shops werden nicht abgefangen.
+        </p>
       </div>
 
       <div class="footer">
-        Made with &#x1F49C; by <a href="https://simwai.taplink.ws">@simwai</a>,
-        adapted by <a href="https://rechnerlotsen.com">RechnerLotsen OG</a> to make the internet a bit better.
+        Made with &#x1F49C; for
+        <a href="https://rechnerlotsen.com" target="_blank" rel="noopener">RechnerLotsen OG</a>
       </div>
     </div>
   </body>

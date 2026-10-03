@@ -1,0 +1,15 @@
+---
+description: Product name and German opt-in dialog copy
+globs: src/**/*.{ts,html,json}
+alwaysApply: false
+---
+
+# Naming and copy
+
+- **Product name**: `OpenSource Partner Support` (manifest, options, dialog title)
+- **Dialog reason** (keep verbatim):
+
+  > Mit der Provision verbessern wir unseren Service und unterstützen zugleich Open-Source-Projekte, auf die wir setzen.
+
+- Do not rename to legacy “Referral Link Inserter” in user-facing UI
+- Options / store text may shorten; keep the opt-in reason sentence intact

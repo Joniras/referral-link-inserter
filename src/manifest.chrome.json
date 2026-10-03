@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "permissions": ["storage", "webNavigation", "tabs"],
+  "host_permissions": [
+    "https://rechnerlotsen.com/*",
+    "http://rechnerlotsen.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "brand/logo-icon.png",
+        "brand/logo-full.png",
+        "fonts/Jost-VariableFont_wght.woff2"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

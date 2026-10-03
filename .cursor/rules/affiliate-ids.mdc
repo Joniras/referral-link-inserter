@@ -1,0 +1,21 @@
+---
+description: Affiliate IDs live only on the website — never in the extension
+alwaysApply: true
+---
+
+# Affiliate IDs
+
+**Never** put affiliate IDs, tags, or campids in this extension repo.
+
+- **Source of truth**: website `src/content/affiliate-partners.json`
+- **Public feed** (extension fetches): `https://rechnerlotsen.com/data/affiliate-partners.json` — hosts, labels, param **names** only
+- **Fallback** (`src/partners-fallback.ts`): hosts/labels/param names only — no IDs
+- Tagging happens on the website support page via `applyAffiliateTag` in `src/lib/affiliate-partners.ts`
+
+```typescript
+// ❌ BAD — ID in extension
+url.searchParams.set('tag', 'rechnerlotsen-21')
+
+// ✅ GOOD — redirect to support; website adds the ID
+buildSupportUrl(dest, partnerKey) // → rechnerlotsen.com/support?dest=…&partner=…
+```

@@ -26,9 +26,14 @@
   },
   "type": "module",
   "scripts": {
-    "zip": "rimraf referral-link-inserter.zip && bestzip referral-link-inserter.zip dist",
-    "build": "rimraf dist && tsc && rimraf dist/tests/ && copyfiles -u 1 \"src/**/*.{html,json,png}\" dist",
-    "zip-firefox": "rimraf referral-link-inserter.xpi && cd dist/ && bestzip ../referral-link-inserter.xpi *",
+    "build": "node scripts/build-extension.mjs all",
+    "build:firefox": "node scripts/build-extension.mjs firefox",
+    "build:chrome": "node scripts/build-extension.mjs chrome",
+    "package:firefox": "npm run build:firefox && node scripts/package-extension.mjs firefox",
+    "package:chrome": "npm run build:chrome && node scripts/package-extension.mjs chrome",
+    "package": "npm run package:firefox && npm run package:chrome",
+    "zip": "npm run package:chrome",
+    "zip-firefox": "npm run package:firefox",
     "test": "rimraf dist && ava && rimraf dist/tests",
     "lint": "xo --fix",
     "format": "xo --fix --prettier"

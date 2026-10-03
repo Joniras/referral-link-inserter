@@ -1,0 +1,28 @@
+---
+description: Extension build, package, version bump, and test commands
+globs: package.json,scripts/**/*,src/manifest*.json,BUILD.md
+alwaysApply: false
+---
+
+# Build and packaging
+
+## Commands
+
+| Script | Output |
+|--------|--------|
+| `npm test` | Ava unit tests |
+| `npm run build:firefox` | `dist-firefox/` (MV2) |
+| `npm run build:chrome` | `dist-chrome/` (MV3) |
+| `npm run package:firefox` | `artifacts/*.xpi` |
+| `npm run package:chrome` | `artifacts/*-chrome.zip` |
+| `npm run build` | Both browser builds |
+
+## Version
+
+Bump **`version` in `src/manifest.shared.json`** (single source). Both manifests inherit it.
+
+## Invariants
+
+- Content-script export strip (`scripts/strip-content-script-export.mjs`) must run after `tsc`
+- Shared TS under `src/`; never fork logic per browser unless API-required
+- Load steps: see `BUILD.md`. Operational skill: `build-extension`

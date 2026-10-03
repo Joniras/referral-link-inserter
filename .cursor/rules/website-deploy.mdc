@@ -1,0 +1,23 @@
+---
+description: Preview then production deploy flow for rechnerlotsen.com
+alwaysApply: false
+---
+
+# Website deploy (rechnerlotsen.com)
+
+Repo: `C:\allmystuff\Rechnerlotsen\rechnerlotsen.com`. Use skill `deploy-website` when asked.
+
+## Flow
+
+1. Commit and push to `main` on the website repo
+2. `./scripts/trigger-preview-deploy.sh main` (needs `DEPLOY_WEBHOOK_SECRET`)
+3. Wait for preview to finish (watch deploy commit / health on rl-intern)
+4. `./scripts/trigger-production-deploy.sh` (needs webhook + `DEPLOY_TRIGGER_SECRET`)
+5. **Confirm PIN popup** on rl-intern preview site
+6. Wait for production deploy commit / verify live site
+
+## Notes
+
+- Preview can auto-shut down after ~1h → **502** until redeployed
+- Affiliate ID / support / tagging changes land via this website deploy, not the extension
+- Do not invent alternate deploy paths; use the trigger scripts

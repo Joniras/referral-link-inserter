@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "Node16",
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "resolveJsonModule": true
   },
   "include": [
     "./src/**/*"

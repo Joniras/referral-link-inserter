@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "office@rechnerlotsen.at",
+      "update_url": "https://addon.rechnerlotsen.com/updates.json"
+    }
+  },
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "tabs",
+    "https://rechnerlotsen.com/*",
+    "http://rechnerlotsen.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    "brand/logo-icon.png",
+    "brand/logo-full.png",
+    "fonts/Jost-VariableFont_wght.woff2"
+  ]
+}

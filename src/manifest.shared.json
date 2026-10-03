@@ -1,0 +1,24 @@
+{
+  "name": "OpenSource Partner Support",
+  "version": "4.4.0",
+  "description": "Optionaler Partner-Support bei Einkäufen: Mit der Provision verbessern wir unseren Service und unterstützen Open-Source-Projekte — mit Opt-in.",
+  "icons": {
+    "16": "favicons/favicon-16x16.png",
+    "32": "favicons/favicon-32x32.png",
+    "64": "favicons/favicon-64x64.png",
+    "128": "favicons/favicon-128x128.png",
+    "256": "favicons/favicon-256x256.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
